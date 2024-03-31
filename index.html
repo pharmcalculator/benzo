@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benzodiazepine Conversion Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #result {
+            text-align: center;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Benzodiazepine Conversion Calculator</h2>
+        <form id="conversionForm">
+            <label for="originalBenzo">Original Benzodiazepine:</label>
+            <select id="originalBenzo">
+                <option value="alprazolam">Alprazolam (Xanax)</option>
+                <option value="lorazepam">Lorazepam (Ativan)</option>
+                <option value="bromazepam">Bromazepam (Lexotan)</option>
+                <option value="midazolam_iv">Midazolam IV (Versed)</option>
+                <option value="chlordiazepoxide">Chlordiazepoxide (Librium)</option>
+                <option value="midazolam_po">Midazolam PO</option>
+                <option value="clonazepam">Clonazepam (Rivotril)</option>
+                <option value="oxazepam">Oxazepam (Serax)</option>
+                <option value="clorazepate">Clorazepate (Tranxene)</option>
+                <option value="quazepam">Quazepam (Doral)</option>
+                <option value="diazepam">Diazepam (Valium)</option>
+                <option value="temazepam">Temazepam (Restoril)</option>
+                <option value="flurazepam">Flurazepam (Dalmane)</option>
+                <option value="triazolam">Triazolam (Halcion)</option>
+            </select>
+            <br><br>
+            <label for="originalDose">Original Dose (mg):</label>
+            <input type="number" id="originalDose" step="0.1">
+            <br><br>
+            <label for="targetBenzo">Target Benzodiazepine:</label>
+            <select id="targetBenzo">
+                <option value="alprazolam">Alprazolam (Xanax)</option>
+                <option value="lorazepam">Lorazepam (Ativan)</option>
+                <option value="bromazepam">Bromazepam (Lexotan)</option>
+                <option value="midazolam_iv">Midazolam IV (Versed)</option>
+                <option value="chlordiazepoxide">Chlordiazepoxide (Librium)</option>
+                <option value="midazolam_po">Midazolam PO</option>
+                <option value="clonazepam">Clonazepam (Rivotril)</option>
+                <option value="oxazepam">Oxazepam (Serax)</option>
+                <option value="clorazepate">Clorazepate (Tranxene)</option>
+                <option value="quazepam">Quazepam (Doral)</option>
+                <option value="diazepam">Diazepam (Valium)</option>
+                <option value="temazepam">Temazepam (Restoril)</option>
+                <option value="flurazepam">Flurazepam (Dalmane)</option>
+                <option value="triazolam">Triazolam (Halcion)</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="convert()">Convert</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <div class="container">
+        <h2>Benzodiazepine Onset of Action and Duration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Benzodiazepine</th>
+                    <th>Onset of Action</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alprazolam (Xanax)</td>
+                    <td>30 min</td>
+                    <td>6-20 h</td>
+                </tr>
+                <tr>
+                    <td>Lorazepam (Ativan)</td>
+                    <td>30-60 min</td>
+                    <td>10-20 h</td>
+                </tr>
+                <tr>
+                    <td>Bromazepam (Lexotan)</td>
+                    <td>30 min - 4 h</td>
+                    <td>10-20 h</td>
+                </tr>
+                <tr>
+                    <td>Chlordiazepoxide (Librium)</td>
+                    <td>1.5 h</td>
+                    <td>5-30 h</td>
+                </tr>
+                <tr>
+                    <td>Clonazepam (Rivotril)</td>
+                    <td>1 h</td>
+                    <td>18-39 h</td>
+                </tr>
+                <tr>
+                    <td>Clorazepate (Tranxene)</td>
+                    <td>1 h</td>
+                    <td>36-200 h</td>
+                </tr>
+                <tr>
+                    <td>Diazepam (Valium)</td>
+                    <td>30 min</td>
+                    <td>20-50 h</td>
+                </tr>
+                <tr>
+                    <td>Flurazepam (Dalmane)</td>
+                    <td>1 h</td>
+                    <td>12-100 h</td>
+                </tr>
+                <tr>
+                    <td>Midazolam IV (Versed)</td>
+                    <td>1-3 min</td>
+                    <td>2-4 h</td>
+                </tr>
+                <tr>
+                    <td>Midazolam PO</td>
+                    <td>10-20 min</td>
+                    <td>20 min - 3 h</td>
+                </tr>
+                <tr>
+                    <td>Oxazepam (Serax)</td>
+                    <td>3 h</td>
+                    <td>3-21 h</td>
+                </tr>
+                <tr>
+                    <td>Quazepam (Doral)</td>
+                    <td>20-45 min</td>
+                    <td>25-100 h</td>
+                </tr>
+                <tr>
+                    <td>Temazepam (Restoril)</td>
+                    <td>30-60 min</td>
+                    <td>10-20 h</td>
+                </tr>
+                <tr>
+                    <td>Triazolam (Halcion)</td>
+                    <td>30 min</td>
+                    <td>1.6-5.5 h</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function convert() {
+            var originalBenzo = document.getElementById("originalBenzo").value;
+            var originalDose = parseFloat(document.getElementById("originalDose").value);
+            var targetBenzo = document.getElementById("targetBenzo").value;
+
+            var benzoEquivalencies = {
+                'alprazolam': 1,
+                'lorazepam': 2,
+                'bromazepam': 6,
+                'midazolam_iv': 4,
+                'chlordiazepoxide': 50,
+                'midazolam_po': 10,
+                'clonazepam': 1,
+                'oxazepam': 30,
+                'clorazepate': 20,
+                'quazepam': 40,
+                'diazepam': 15,
+                'temazepam': 30,
+                'flurazepam': 30,
+                'triazolam': 0.5,
+            };
+
+            if (!(originalBenzo in benzoEquivalencies) || !(targetBenzo in benzoEquivalencies)) {
+                document.getElementById("result").innerHTML = "Benzodiazepine not found in the database.";
+                return;
+            }
+
+            var equivalentDose = originalDose * (1 / benzoEquivalencies[originalBenzo]) * benzoEquivalencies[targetBenzo];
+            document.getElementById("result").innerHTML = originalDose + " mg of " + originalBenzo + " is equivalent to " + equivalentDose.toFixed(2) + " mg of " + targetBenzo;
+        }
+    </script>
+</body>
+</html>
